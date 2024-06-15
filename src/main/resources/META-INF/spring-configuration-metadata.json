@@ -1,0 +1,24 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "wise.chat.message.feishu.url",
+      "type": "java.lang.String",
+      "description": "Feishu Service Address.",
+      "defaultValue": "https://open.feishu.cn/open-apis",
+      "sourceType": "chat.wise.message.feishu.FeishuProperties"
+    },
+    {
+      "name": "wise.chat.message.feishu.appId",
+      "type": "java.lang.String",
+      "description": "Feishu App ID.",
+      "sourceType": "chat.wise.message.feishu.FeishuProperties"
+    },
+    {
+      "name": "wise.chat.message.feishu.appSecret",
+      "type": "java.lang.String",
+      "description": "Feishu App Secret.",
+      "sourceType": "chat.wise.message.feishu.FeishuProperties"
+    }
+  ]
+}
