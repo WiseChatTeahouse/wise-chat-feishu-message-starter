@@ -1,7 +1,9 @@
 package chat.wisechat.message.feishu.config;
 
 import chat.wisechat.message.feishu.FeishuProperties;
+import chat.wisechat.message.feishu.entity.FeishuMessageContent;
 import chat.wisechat.message.feishu.entity.MessageContent;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import okhttp3.*;
@@ -21,10 +23,12 @@ public class FeishuMsgTemplate {
 
     private FeishuProperties feishuProperties;
 
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
     public String send(MessageContent messageContent) {
         String result = "";
         try {
-            result = doPost(feishuProperties.getUrl() + messageContent.getWebhookId(), messageContent.getContentJson());
+            result = doPost(feishuProperties.getUrl() + messageContent.getWebhookId(), messageContent.getMessageContent());
         } catch (IOException e) {
             LogFactory.getLog(this.getClass()).warn("飞书消息发送失败！", e);
         }
@@ -32,9 +36,10 @@ public class FeishuMsgTemplate {
     }
 
 
-    private String doPost(String url, String json) throws IOException {
+    private String doPost(String url, FeishuMessageContent messageContent) throws IOException {
         MediaType mediaType = MediaType.parse("application/json;charset=UTF-8");
-        RequestBody body = RequestBody.create(json, mediaType);
+        byte[] jsonBytes = OBJECT_MAPPER.writeValueAsBytes(messageContent);
+        RequestBody body = RequestBody.create(jsonBytes, mediaType);
         Request.Builder request = new Request.Builder();
         request.url(url);
         request.post(body);

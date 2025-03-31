@@ -18,11 +18,12 @@ public class OkHttpInterceptor implements Interceptor {
     @NotNull
     @Override
     public Response intercept(@NotNull Chain chain) throws IOException {
-        long startTime = System.nanoTime();
         Request request = chain.request();
+        long startTime = System.nanoTime();
+        Response response = chain.proceed(request);
         long cost = Duration.ofNanos(System.nanoTime() - startTime).toMillis();
         LogFactory.getLog(this.getClass())
                 .debug(String.format("url: %s cost: %dms", request.url().url().getPath(), cost / 1000));
-        return chain.proceed(request);
+        return response;
     }
 }
