@@ -1,6 +1,6 @@
-package chat.wise.message.feishu.vo;
+package chat.wisechat.message.feishu.vo;
 
-import chat.wise.message.feishu.entity.FeiShuCard;
+import chat.wisechat.message.feishu.entity.FeiShuCard;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 

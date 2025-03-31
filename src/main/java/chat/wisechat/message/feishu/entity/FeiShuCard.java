@@ -1,4 +1,4 @@
-package chat.wise.message.feishu.entity;
+package chat.wisechat.message.feishu.entity;
 
 import lombok.Data;
 

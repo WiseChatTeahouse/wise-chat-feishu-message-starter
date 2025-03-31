@@ -1,4 +1,4 @@
-package chat.wise.message.feishu.constant;
+package chat.wisechat.message.feishu.constant;
 
 /**
  * @Author siberia.hu

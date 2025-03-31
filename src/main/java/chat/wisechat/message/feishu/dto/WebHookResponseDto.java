@@ -1,4 +1,4 @@
-package chat.wise.message.feishu.dto;
+package chat.wisechat.message.feishu.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
