@@ -11,5 +11,5 @@ import lombok.Data;
 public class MessageContent {
     private MessageType type;
     private String webhookId;
-    private String contentJson;
+    private FeishuMessageContent messageContent;
 }

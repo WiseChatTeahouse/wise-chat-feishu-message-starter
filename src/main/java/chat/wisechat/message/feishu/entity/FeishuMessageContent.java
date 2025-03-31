@@ -1,18 +1,18 @@
-package chat.wisechat.message.feishu.vo;
+package chat.wisechat.message.feishu.entity;
 
-import chat.wisechat.message.feishu.entity.FeiShuCard;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.Map;
 
 /**
- * @Author siberia.hu
- * @Package chat.wise.message.feishu.vo
- * @Date 2024/6/15 14:19
+ * @Author Siberia.Hu
+ * @Date 2025/3/31 15:17
  */
 @Data
-public class WebHookReqBodyVo {
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+public class FeishuMessageContent {
 
     @JsonProperty(value = "msg_type")
     private String msgType;
